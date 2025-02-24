@@ -1,7 +1,7 @@
 --[[SMODS.current_mod.optional_features = {
     -- enable additional SMODS contexts that can be CPU intensive
     retrigger_joker = true,  -- for blue yourself
-}
+}]]--
 
 SMODS.Atlas {
     key = "modicon",
@@ -11,11 +11,11 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-    key = "NeatoJokers",
-    path = "NeatoJokers.png",
+    key = "jokers",
+    path = "jokers.png",
     px = 71,
     py = 95,
-}--]]
+}
 
 -- load common util funcs, SMODS UI functions, and the hooks our mod uses
 assert(SMODS.load_file("common.lua"))()
