@@ -40,18 +40,6 @@ function count_enhancement(enhancement)
     return counter
 end
 
-function any_foils()
-    -- returns bool
-    local areas = {G.playing_cards, G.jokers}
-    for _, area in pairs(areas) do
-        local cards = area and area.cards or {}  -- safety first!
-        for _, card in pairs(cards) do
-            if card.edition and card.edition.key == "e_foil" then
-                return true
-            end
-        end
-    end
-
     return false
 end
 
@@ -61,23 +49,7 @@ SMODS.current_mod.description_loc_vars = function()
     return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2, shadow = true }
 end
 
--- add clickable link in description tab
-SMODS.current_mod.custom_ui = function(nodes)
-    local title, description = unpack(nodes)
-    local twitch_deepfind = SMODS.deepfind(description, "twitch.tv/neato", true)[1]
-    if twitch_deepfind then
-        -- hacky, maybe there's a better way than this?
-        local twitch_link_table = twitch_deepfind.objtree[#twitch_deepfind.objtree-2]
-        twitch_link_table.config.button = "go_to_neato_twitch"
-        twitch_link_table.config.tooltip = {text = {localize('b_open_link')}}
-    end
-end
-
-G.FUNCS.go_to_neato_twitch = function(e)
-    love.system.openURL("https://twitch.tv/neato")
-end
-
-local old_loc_colour = loc_colour
+--[[local old_loc_colour = loc_colour
 function loc_colour(_c, _default)
     -- hook for custom colours
     local custom_colours = {
@@ -89,11 +61,11 @@ function loc_colour(_c, _default)
     end
 
     return old_loc_colour(_c, _default)
-end
+end--]]
 
-local old_Card_get_chip_mult = Card.get_chip_mult
+--[[local old_Card_get_chip_mult = Card.get_chip_mult
 function Card:get_chip_mult()
     -- hook seems best for mod compat?
     local mult = old_Card_get_chip_mult(self)
     return mult + (self.ability.perma_mult or 0)
-end
+end--]]
