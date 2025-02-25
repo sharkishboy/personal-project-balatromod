@@ -19,7 +19,6 @@ SMODS.Joker{
                 mult = card.ability.extra.mult
             }
         elseif context.before and next(context.poker_hands['Four of a Kind']) and not context.blueprint then
-            -- no need to check context.poker_hands for 'Full House', since 'Two Pair' will be provided even with bigger hands present
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
             return {
                 message = localize('k_upgrade_ex'),
