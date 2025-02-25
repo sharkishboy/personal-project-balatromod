@@ -7,8 +7,8 @@ SMODS.Joker{
     perishable_compat = false,
     config = {extra = {mult_mod = 10, mult = 0}},
     rarity = 2,
-    --atlas = 
-    --pos = 
+    atlas = "jokers",
+    pos = { x = 0, y = 0},
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {card.ability.extra.mult_mod, localize('Four of a Kind', 'poker_hands'), card.ability.extra.mult}}
